@@ -59,6 +59,7 @@ function Home() {
                 parent1={findParent1(person)}
                 parent2={findParent2(person)}
                 hideDetail={closeDetailView}
+                data={data}
               />
             </div>
           </div>

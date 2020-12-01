@@ -13,6 +13,10 @@
   border: 1px solid #777;
 }
 
+.Person-Person {
+  position: relative;
+}
+
 .Person-Spouse-Row {
   display: flex;
   justify-content: center;
@@ -27,5 +31,24 @@
 
   &:hover {
     opacity: 0.6;
+  }
+}
+
+.Person-Edit-Button {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.Person-Edit-Form {
+  display: none;
+
+  &.show-form {
+    display: block;
   }
 }

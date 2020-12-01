@@ -1,5 +1,8 @@
+import React, { useState } from 'react';
+import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
+import EditPerson from '../edit-person';
 import './Person.scss';
 
 function Person({
@@ -8,7 +11,16 @@ function Person({
   parent1,
   parent2,
   hideDetail,
+  data,
 }) {
+  const [editFormShowing, setEditFormShowing] = useState(false);
+  const showEdit = () => {
+    setEditFormShowing(true);
+  }
+  const hideEdit = () => {
+    setEditFormShowing(false);
+  }
+
   return (
     <div className="Person">
       <div
@@ -35,6 +47,12 @@ function Person({
       </div>
       <div className="Person-Spouse-Row">
         <div className="Person-Person">
+          <div
+            className="Person-Edit-Button"
+            onClick={() => showEdit(person)}
+          >
+            <FontAwesomeIcon icon={faEdit} title="Person-Edit-Button" />
+          </div>
           <p>{person.name}</p>
           <p>Born {person.born}</p>
           <p>Hometown {person.hometown}</p>
@@ -46,6 +64,16 @@ function Person({
             <p>Hometown {spouse.hometown}</p>
           </div>
         )}
+      </div>
+      <div className={classNames("Person-Edit-Form", { 'show-form': editFormShowing })}>
+        <EditPerson
+          person={person}
+          parent1={parent1}
+          parent2={parent2}
+          spouse={spouse}
+          hideEdit={hideEdit}
+          data={data}
+        />
       </div>
     </div>
   );

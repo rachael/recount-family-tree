@@ -1,0 +1,26 @@
+.Edit-Hide-Button {
+  width: 1em;
+  padding: 0.5em 1em;
+  margin: 0 auto;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.Edit-Form form {
+  display: flex;
+  flex-direction: column;
+
+  .Edit-Form-Label {
+    display: inline-block;
+    width: 6em;
+    margin: 0.5em;
+    text-align: right;
+  }
+
+  input, select {
+    width: 14em;
+  }
+}
