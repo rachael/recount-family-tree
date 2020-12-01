@@ -66,7 +66,7 @@ function Person({
           </div>
         )}
       </div>
-      <div className={classNames("Person-Edit-Form", { 'show-form': editFormShowing })}>
+      <div className={classNames('Person-Edit-Form', { 'show-form': editFormShowing })}>
         <EditPerson
           person={person}
           parent1={parent1}
