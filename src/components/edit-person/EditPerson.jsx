@@ -37,6 +37,7 @@ function EditPerson({
   }
 
   const handleSubmit = (e) => {
+    hideEdit();
     e.preventDefault();
   };
 
@@ -116,6 +117,7 @@ function EditPerson({
               ))}
             </select>
           </label>
+          <input type="submit" />
         </form>
       </div>
     </div>
