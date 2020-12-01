@@ -9,6 +9,7 @@ function EditPerson({
   parent1,
   parent2,
   hideEdit,
+  onSubmit,
   data,
 }) {
   const [personEditData, setPersonEditData] = useState({
@@ -22,6 +23,10 @@ function EditPerson({
     if(type === 'id') {
       setPersonEditData({
         ...personEditData,
+        person: {
+          ...personEditData.person,
+          [`${type}Id`]: event.target.value,
+        },
         [person]: data.find(person2 => person2.id === parseInt(event.target.value)),
       });
       return;
@@ -37,6 +42,7 @@ function EditPerson({
   }
 
   const handleSubmit = (e) => {
+    onSubmit(personEditData);
     hideEdit();
     e.preventDefault();
   };

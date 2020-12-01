@@ -11,6 +11,7 @@ function Person({
   parent1,
   parent2,
   hideDetail,
+  onEdit,
   data,
 }) {
   const [editFormShowing, setEditFormShowing] = useState(false);
@@ -72,6 +73,7 @@ function Person({
           parent2={parent2}
           spouse={spouse}
           hideEdit={hideEdit}
+          onSubmit={onEdit}
           data={data}
         />
       </div>

@@ -35,11 +35,29 @@ function Home() {
     })
   }
 
+  const [personData, setPersonData] = useState(data);
+  const handleEdit = (personEditData) => {
+    console.log('setting person data to', [
+      ...personData.filter(person => person.id !== personEditData.person.id),
+      {
+        ...personData.find(person => person.id === personEditData.person.id),
+        ...personEditData.person,
+      }
+    ])
+    setPersonData([
+      ...personData.filter(person => person.id !== personEditData.person.id),
+      {
+        ...personData.find(person => person.id === personEditData.person.id),
+        ...personEditData.person,
+      }
+    ]);
+  }
+
   return (
     <div className="Home">
       <header className="Home-Header"><h1>Family Tree</h1></header>
       <div className="Home-Persons">
-        {data.map(person => (
+        {personData.sort((a, b) => a.id - b.id).map(person => (
           <div
             key={person.id}
             className={classNames("Home-Person", { 'show-detail': openDetailViews[person.id] })}
@@ -59,7 +77,8 @@ function Home() {
                 parent1={findParent1(person)}
                 parent2={findParent2(person)}
                 hideDetail={closeDetailView}
-                data={data}
+                onEdit={handleEdit}
+                data={personData}
               />
             </div>
           </div>
