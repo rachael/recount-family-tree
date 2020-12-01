@@ -1,0 +1,31 @@
+.Person-Parents {
+  display: flex;
+  justify-content: center;
+}
+
+.Person-Parent1,
+.Person-Parent2,
+.Person-Person,
+.Person-Spouse {
+  flex-basis: 100%;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid #777;
+}
+
+.Person-Spouse-Row {
+  display: flex;
+  justify-content: center;
+}
+
+.Detail-Hide-Button {
+  width: 1em;
+  padding: 0.5em 1em;
+  margin-left: auto;
+  margin-bottom: -1em;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

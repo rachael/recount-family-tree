@@ -9,5 +9,21 @@
   max-width: 40em;
   margin: 1em;
   border: 1px solid #777;
+
+  &.show-detail {
+    .Home-Person_detail-view {
+      display: block;
+    }
+    .Home-Person_default-view {
+      display: none;
+    }
+  }
+}
+
+.Home-Person_default-view {
   cursor: pointer;
+}
+
+.Home-Person_detail-view {
+  display: none;
 }
