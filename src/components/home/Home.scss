@@ -1,0 +1,13 @@
+.Home-Persons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Home-Person {
+  width: 100%;
+  max-width: 40em;
+  margin: 1em;
+  border: 1px solid #777;
+  cursor: pointer;
+}
