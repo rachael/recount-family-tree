@@ -6,17 +6,17 @@ import './Home.scss';
 
 function Home() {
   const findSpouse = (person) => {
-    if(person.spouseId !== undefined) return data.find((person2) => person2.id === person.spouseId);
+    if(person.spouseId !== undefined) return personData.find((person2) => person2.id === person.spouseId);
     return undefined;
   }
 
   const findParent1 = (person) => {
-    if(person.parentId1 !== undefined) return data.find((person2) => person2.id === person.parentId1);
+    if(person.parentId1 !== undefined) return personData.find((person2) => person2.id === person.parentId1);
     return undefined;
   }
 
   const findParent2 = (person) => {
-    if(person.parentId2 !== undefined) return data.find((person2) => person2.id === person.parentId2);
+    if(person.parentId2 !== undefined) return personData.find((person2) => person2.id === person.parentId2);
     return undefined;
   }
 
@@ -37,13 +37,6 @@ function Home() {
 
   const [personData, setPersonData] = useState(data);
   const handleEdit = (personEditData) => {
-    console.log('setting person data to', [
-      ...personData.filter(person => person.id !== personEditData.person.id),
-      {
-        ...personData.find(person => person.id === personEditData.person.id),
-        ...personEditData.person,
-      }
-    ])
     setPersonData([
       ...personData.filter(person => person.id !== personEditData.person.id),
       {
@@ -52,6 +45,8 @@ function Home() {
       }
     ]);
   }
+
+  console.log(personData);
 
   return (
     <div className="Home">

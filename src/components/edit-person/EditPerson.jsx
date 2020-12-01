@@ -21,11 +21,14 @@ function EditPerson({
 
   const update = (person, type, event) => {
     if(type === 'id') {
+      let idType = 'spouseId';
+      if(person === 'parent1') idType = 'parentId1';
+      if(person === 'parent2') idType = 'parentId2';
       setPersonEditData({
         ...personEditData,
         person: {
           ...personEditData.person,
-          [`${type}Id`]: event.target.value,
+          [idType]: parseInt(event.target.value),
         },
         [person]: data.find(person2 => person2.id === parseInt(event.target.value)),
       });
